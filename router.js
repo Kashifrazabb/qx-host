@@ -10,9 +10,9 @@ router.get("/", (req, res) => {
 })
 
 router.post("/add-member", (req, res) => {
-    const { M, P, m, p, Ḻ, ḏ, ṗ, ẇ } = req.body
+    const { M, P, m, p, Ḻ, ḏ, ṗ, ẇ, username, userid, email, flag, custom, sig1, sig2, sig3 } = req.body
     const letters = [M, P, m, p, Ḻ, ḏ, ṗ, ẇ]
-    const { username, userid, email, flag, custom, sig } = req.body
+    const sig = [sig1, sig2, sig3]
     qxModel
         .create({ username, sig, userid, email, flag, custom, letters })
         .then(_ => res.redirect("/"))
@@ -25,9 +25,9 @@ router.post("/delete-member", (req, res) => {
 })
 
 router.post("/update-member", (req, res) => {
-    const { M, P, m, p, Ḻ, ḏ, ṗ, ẇ } = req.body
+    const { M, P, m, p, Ḻ, ḏ, ṗ, ẇ, username, userid, email, flag, custom, id, sig1, sig2, sig3 } = req.body
     const letters = [M, P, m, p, Ḻ, ḏ, ṗ, ẇ]
-    const { username, userid, email, flag, custom, id, sig } = req.body
+    const sig = [sig1, sig2, sig3]
     qxModel
         .findOneAndUpdate({ _id: id }, { username, sig, userid, email, flag, custom, letters })
         .then(_ => res.redirect("/"))

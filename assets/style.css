@@ -1,5 +1,5 @@
 :root {
-    --main-color: #980028;
+    --main-color: dodgerblue;
     --sub-color: white
 }
 
@@ -8,22 +8,23 @@
 }
 
 #wrapper {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 3rem;
 }
 
+.letters {
+    display: flex;
+    justify-content: space-between;
+    word-wrap: break-word;
+}
+
 label {
-    width: 100%;
     display: inline-block;
-}
-
-input:not(input[type="checkbox"]):not(input[type="submit"]) {
-    width: 50%;
-}
-
-form {
-    width: fit-content;
-    display: inline-block;
+    width: 120px;
+    text-align: left;
 }
 
 input[type="submit"] {
@@ -44,10 +45,6 @@ button {
     box-shadow: none;
 }
 
-#buttons {
-    text-align: center;
-}
-
 legend {
     color: var(--main-color)
 }
@@ -56,18 +53,8 @@ fieldset {
     font-weight: bold;
 }
 
-select {
-    width: 6rem;
-    height: 2rem;
-    outline: none !important;
-}
-
 input {
     outline: none !important;
-}
-
-#items form {
-    margin-bottom: 1rem;
 }
 
 #user {
@@ -75,15 +62,10 @@ input {
     font-weight: bold;
 }
 
-#field {
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-}
-
-.letters {
-    word-wrap: break-word;
-}
-
 input[type="checkbox"]:checked {
-    accent-color: crimson;
+    accent-color: var(--main-color);
+}
+
+#buttons {
+    text-align: center;
 }

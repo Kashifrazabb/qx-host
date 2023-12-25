@@ -21,7 +21,7 @@
                         <input type="checkbox" name="<%= l %>" value="<%= l %>">
                         <span>
                             <%= l %>
-                        </span>
+                        </span>&nbsp;
                         <% })%>
                 </div><br>
                 <label for="ausername">Username:</label>
@@ -34,8 +34,10 @@
                 <input type="text" id="flag" name="flag"><br><br>
                 <label for="acustom">Custom:</label>
                 <input type="text" id="acustom" name="custom"><br><br>
-                <label for="sig">Sig Shorts:</label>
-                <input type="text" id="sig" name="sig"><br><br>
+                <label for="sig">Signatures:</label>
+                <input type="text" id="sig" name="sig1"><br>
+                <label></label> <input type="text" name="sig2"><br>
+                <label></label> <input type="text" name="sig3"><br><br>
                 <input type="submit" value="ADD">
             </fieldset>
         </form>
@@ -50,11 +52,11 @@
                                 if(user.letters[i]) { %>
                                 <input type="checkbox" name="<%= l %>" value="<%= l %>" checked><span>
                                     <%= l %>
-                                </span>
+                                </span>&nbsp;
                                 <% } else { %>
                                     <input type="checkbox" name="<%= l %>" value="<%= l %>"><span>
                                         <%= l %>
-                                    </span>
+                                    </span>&nbsp;
                                     <% } })%>
                         </div>
                         <br>
@@ -68,8 +70,10 @@
                         <input type="text" name="flag" value="<%= user.flag %>"><br><br>
                         <label>Custom:</label>
                         <input type="text" name="custom" value="<%= user.custom %>"><br><br>
-                        <label for="asig">Sig:</label>
-                        <input type="text" id="asig" name="sig" value="<%= user.sig %>"><br><br>
+                        <label for="asig">Signatures:</label>
+                        <input type="text" id="asig" name="sig1" value="<%= user.sig[0] %>"><br>
+                        <label></label> <input type="text" name="sig2" value="<%= user.sig[1] %>"><br>
+                        <label></label> <input type="text" name="sig3" value="<%= user.sig[2] %>"><br><br>
                         <input type="hidden" value="<%= user.id %>" name="id">
                         <div id="buttons">
                             <button type="submit" formaction="/update-member">UPDATE</button>

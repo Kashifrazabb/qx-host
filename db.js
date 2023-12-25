@@ -13,7 +13,7 @@ const qxSchema = Schema({
     email: { type: String },
     flag: { type: String },
     custom: { type: String },
-    sig: { type: String }
+    sig: [String]
 })
 
 const qxModel = model('qxModel', qxSchema)
