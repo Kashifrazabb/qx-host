@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://getadblock.com/favicon.ico" type="image/x-icon">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <form action="/add-member" method="post">
+            <fieldset>
+                <legend>ADD NEW MEMBER</legend>
+                <br>
+                <div class="letters">
+                    <% const lett=["M","P","m","p","Ḻ","ḏ","ṗ","ẇ"]; lett.forEach(l=>{ %>
+                        <input type="checkbox" name="<%= l %>" value="<%= l %>">
+                        <span>
+                            <%= l %>
+                        </span>
+                        <% })%>
+                </div><br>
+                <label for="ausername">Username:</label>
+                <input type="text" id="ausername" name="username"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="userid">UserID:</label>
+                <input type="number" id="userid" name="userid"><br><br>
+                <label for="flag">Flag:</label>
+                <input type="text" id="flag" name="flag"><br><br>
+                <label for="acustom">Custom:</label>
+                <input type="text" id="acustom" name="custom"><br><br>
+                <label for="sig">Sig Shorts:</label>
+                <input type="text" id="sig" name="sig"><br><br>
+                <input type="submit" value="ADD">
+            </fieldset>
+        </form>
+        <br><br>
+        <div id="items">
+            <% users.forEach(user=> { %>
+                <form method="post">
+                    <fieldset id="field">
+                        <br>
+                        <div class="letters">
+                            <% const lett=["M","P","m","p","Ḻ","ḏ","ṗ","ẇ"]; lett.forEach((l,i)=>{
+                                if(user.letters[i]) { %>
+                                <input type="checkbox" name="<%= l %>" value="<%= l %>" checked><span>
+                                    <%= l %>
+                                </span>
+                                <% } else { %>
+                                    <input type="checkbox" name="<%= l %>" value="<%= l %>"><span>
+                                        <%= l %>
+                                    </span>
+                                    <% } })%>
+                        </div>
+                        <br>
+                        <label>Userame:</label>
+                        <input type="text" name="username" value="<%= user.username %>" id="user"><br><br>
+                        <label>UserID:</label>
+                        <input type="number" name="userid" value="<%= user.userid %>"><br><br>
+                        <label>Email:</label>
+                        <input type="email" name="email" value="<%= user.email %>"><br><br>
+                        <label>Flag:</label>
+                        <input type="text" name="flag" value="<%= user.flag %>"><br><br>
+                        <label>Custom:</label>
+                        <input type="text" name="custom" value="<%= user.custom %>"><br><br>
+                        <label for="asig">Sig:</label>
+                        <input type="text" id="asig" name="sig" value="<%= user.sig %>"><br><br>
+                        <input type="hidden" value="<%= user.id %>" name="id">
+                        <div id="buttons">
+                            <button type="submit" formaction="/update-member">UPDATE</button>
+                            <button id="del_btn" type="submit" formaction="/delete-member"
+                                onclick="return confirm('Are you sure you want to delete this item?');">DELETE</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <% }) %>
+        </div>
+    </div>
+</body>
+
+</html>
