@@ -35,9 +35,9 @@
                 <label for="acustom">Custom:</label>
                 <input type="text" id="acustom" name="custom"><br><br>
                 <label for="sig">Signatures:</label>
-                <input type="text" id="sig" name="sig1"><br>
-                <label></label> <input type="text" name="sig2"><br>
-                <label></label> <input type="text" name="sig3"><br><br>
+                <input type="text" id="sig" name="sig1">⭐<br>
+                <label></label> <input type="text" name="sig2">📱<br>
+                <label></label> <input type="text" name="sig3">💻<br><br>
                 <input type="submit" value="ADD">
             </fieldset>
         </form>
@@ -71,9 +71,9 @@
                         <label>Custom:</label>
                         <input type="text" name="custom" value="<%= user.custom %>"><br><br>
                         <label for="asig">Signatures:</label>
-                        <input type="text" id="asig" name="sig1" value="<%= user.sig[0] %>"><br>
-                        <label></label> <input type="text" name="sig2" value="<%= user.sig[1] %>"><br>
-                        <label></label> <input type="text" name="sig3" value="<%= user.sig[2] %>"><br><br>
+                        <input type="text" id="asig" name="sig1" value="<%= user.sig[0] %>">⭐<br>
+                        <label></label> <input type="text" name="sig2" value="<%= user.sig[1] %>">📱<br>
+                        <label></label> <input type="text" name="sig3" value="<%= user.sig[2] %>">💻<br><br>
                         <input type="hidden" value="<%= user.id %>" name="id">
                         <div id="buttons">
                             <button type="submit" formaction="/update-member">UPDATE</button>
